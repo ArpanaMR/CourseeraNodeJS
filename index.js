@@ -1,17 +1,18 @@
+const rectangle = require('./rectangle');
 var rect=require('./rectangle');
 
 function solveRect(l,b){
     console.log("Solving for rectangle with l="  +l + "and b=" +b);
-
-    if(l<=0 || b<=0){
-        console.log("Rectangle dimensions should be greater than zero");
-
+rect(l,b,(err,rectangle)=>{
+    if(err){
+        console.log("ERROR:",err.message);
     }
-
     else{
-        console.log("Area is "+ rect.area(l,b));
-        console.log("Perimeter is "+rect.perimeter(l,b));
+        console.log("The area of rectangle is"+rectangle.area())
     }
+});
+//To show 2 second delay we put
+console.log("This statemtn is after to call to rect");
 }
 
 solveRect(2,4);
